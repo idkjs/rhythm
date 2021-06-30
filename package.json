@@ -19,13 +19,17 @@
     "@opam/dune": "*",
     "@esy-ocaml/reason": "*",
     "refmterr": "*",
-    "ocaml": ">= 4.2.0  <= 4.7.0",
-    "@opam/re": "*",
-    "@reason-native/rely": "^1.2.0"
+    "ocaml": "*",
+    "@reason-native/rely": "*"
   },
   "devDependencies": {
     "@opam/merlin": "*",
-    "ocaml": "~4.6.0",
-    "@esy-ocaml/reason": "3.3.3"
+    "ocaml": "*",
+    "@esy-ocaml/reason": "*"
+  },
+  "resolutions": {
+    "@reason-native/rely": "jfrolich/reason-native:rely.json#08085a4048974b06aaf3aab918b677b39dea3d18",
+    "refmterr": "jfrolich/reason-native:refmterr.json#08085a4048974b06aaf3aab918b677b39dea3d18",
+    "@esy-ocaml/reason": "EduardoRFS/reason:reason.json#35aa4df3de0daa60bdc1133dcf97855decac48f7"
   }
 }

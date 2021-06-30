@@ -1,11 +1,11 @@
 (library
-  (name Tests)
-  ; IMPORTANT: -linkall flag is required to include all tests.
-  (ocamlopt_flags -linkall -g)
-  (libraries
-    rely.lib
-    rhythm.lib
-  )
-)
+ (name Tests)
+ ; IMPORTANT: -linkall flag is required to include all tests.
+ (ocamlopt_flags -linkall -g)
+ (libraries rely.lib rhythm.lib)
+ (flags
+  (:standard -warn-error -27-32-35-9-39-33)))
+
 (include_subdirs unqualified)
+
 (dirs :standard __tests__)

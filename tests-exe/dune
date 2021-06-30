@@ -1,9 +1,7 @@
 (executable
-  (package tests)
-  (name TestsExe)
-  (public_name TestsExe.exe)
-  (ocamlopt_flags -g)
-  (libraries
-    Tests
-  )
-)
+ (modes byte exe)
+ (package tests)
+ (name TestsExe)
+ (public_name TestsExe.exe)
+ (ocamlopt_flags -g)
+ (libraries Tests))

@@ -1,6 +1,7 @@
 (library
-  (name Rhythm)
-  (public_name rhythm.lib)
-  (libraries)
-)
+ (name Rhythm)
+ (public_name rhythm.lib)
+ (libraries)
+ (flags (:standard -warn-error -27-32-35-9-39-33)))
+
 (include_subdirs unqualified)
