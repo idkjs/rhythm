@@ -22,6 +22,7 @@ Building / Testing
 
 ```
 esy build && esy test
+export RHYTHM_PROJECT_ROOT=`pwd` && esy dune exec tests-exe/TestsExe.exe
 ```
 
 Or use watcher for development
@@ -29,3 +30,4 @@ Or use watcher for development
 ```
 esy watch
 ```
+
