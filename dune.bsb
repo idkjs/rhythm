@@ -1,0 +1,406 @@
+;;;;{BSB GENERATED: NO EDIT
+(subdir ./src
+(dirs :standard common-types data-structures algorithms math)
+(rule
+(targets  Caml.ast)
+ (deps (:inputs  Caml.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Caml.cmj Caml.cmi Caml.cmt Caml.bs.js)
+ (deps (:inputs  Caml.ast)  (:ast_deps .././src/Caml.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./common-types -I ./data-structures/features -I ./data-structures -I ./algorithms/search -I ./algorithms -I ./math -I .    -w a -bs-package-name rhythm -bs-package-output commonjs:./src:.bs.js -o Caml.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Exceptions.ast)
+ (deps (:inputs  Exceptions.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Exceptions.cmj Exceptions.cmi Exceptions.cmt Exceptions.bs.js)
+ (deps (:inputs  Exceptions.ast)  (:ast_deps .././src/Exceptions.ast ) ../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src %{ast_deps}) (run bsc -bs-re-out -I ./common-types -I ./data-structures/features -I ./data-structures -I ./algorithms/search -I ./algorithms -I ./math -I .    -w a -bs-package-name rhythm -bs-package-output commonjs:./src:.bs.js -o Exceptions.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  Exceptions.bs.js Caml.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./src/math
+(rule
+(targets  Math.ast)
+ (deps (:inputs  Math.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Math.cmj Math.cmi Math.cmt Math.bs.js)
+ (deps (:inputs  Math.ast)  (:ast_deps ../.././src/math/Math.ast ) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/math %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ../data-structures/features -I ../data-structures -I ../algorithms/search -I ../algorithms -I . -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/math:.bs.js -o Math.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  Math.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./src/algorithms/search
+(rule
+(targets  BinarySearch.ast)
+ (deps (:inputs  BinarySearch.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  BinarySearch.cmj BinarySearch.cmi BinarySearch.cmt BinarySearch.bs.js)
+ (deps (:inputs  BinarySearch.ast)  (:ast_deps ../../.././src/algorithms/search/BinarySearch.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/algorithms/search %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I ../../data-structures/features -I ../../data-structures -I . -I .. -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/algorithms/search:.bs.js -o BinarySearch.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  GeneralBinarySearch.ast)
+ (deps (:inputs  GeneralBinarySearch.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  GeneralBinarySearch.iast)
+ (deps (:inputs  GeneralBinarySearch.rei) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  GeneralBinarySearch.cmi GeneralBinarySearch.cmti)
+ (deps (:inputs  GeneralBinarySearch.iast)  (:ast_deps ../../.././src/algorithms/search/GeneralBinarySearch.ast ../../.././src/algorithms/search/GeneralBinarySearch.iast) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/algorithms/search %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I ../../data-structures/features -I ../../data-structures -I . -I .. -I ../../math -I ../..    -w a -o GeneralBinarySearch.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  GeneralBinarySearch.cmj GeneralBinarySearch.cmt GeneralBinarySearch.bs.js)
+ (deps (:inputs  GeneralBinarySearch.ast)  GeneralBinarySearch.cmi (:ast_deps ../../.././src/algorithms/search/GeneralBinarySearch.ast ../../.././src/algorithms/search/GeneralBinarySearch.iast) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/algorithms/search %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I ../../common-types -I ../../data-structures/features -I ../../data-structures -I . -I .. -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/algorithms/search:.bs.js -o GeneralBinarySearch.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  GeneralBinarySearch.bs.js BinarySearch.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./src/data-structures
+(dirs :standard features)
+(rule
+(targets  Deque.ast)
+ (deps (:inputs  Deque.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Deque.iast)
+ (deps (:inputs  Deque.rei) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Deque.cmi Deque.cmti)
+ (deps (:inputs  Deque.iast)  (:ast_deps ../.././src/data-structures/Deque.ast ../.././src/data-structures/Deque.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -o Deque.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Deque.cmj Deque.cmt Deque.bs.js)
+ (deps (:inputs  Deque.ast)  Deque.cmi (:ast_deps ../.././src/data-structures/Deque.ast ../.././src/data-structures/Deque.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures:.bs.js -o Deque.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlList.ast)
+ (deps (:inputs  CamlList.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlList.iast)
+ (deps (:inputs  CamlList.rei) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlList.cmi CamlList.cmti)
+ (deps (:inputs  CamlList.iast)  (:ast_deps ../.././src/data-structures/CamlList.ast ../.././src/data-structures/CamlList.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -o CamlList.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlList.cmj CamlList.cmt CamlList.bs.js)
+ (deps (:inputs  CamlList.ast)  CamlList.cmi (:ast_deps ../.././src/data-structures/CamlList.ast ../.././src/data-structures/CamlList.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures:.bs.js -o CamlList.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlArray.ast)
+ (deps (:inputs  CamlArray.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlArray.iast)
+ (deps (:inputs  CamlArray.rei) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlArray.cmi CamlArray.cmti)
+ (deps (:inputs  CamlArray.iast)  (:ast_deps ../.././src/data-structures/CamlArray.ast ../.././src/data-structures/CamlArray.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -o CamlArray.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlArray.cmj CamlArray.cmt CamlArray.bs.js)
+ (deps (:inputs  CamlArray.ast)  CamlArray.cmi (:ast_deps ../.././src/data-structures/CamlArray.ast ../.././src/data-structures/CamlArray.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures:.bs.js -o CamlArray.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  DequeCore.ast)
+ (deps (:inputs  DequeCore.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  DequeCore.cmj DequeCore.cmi DequeCore.cmt DequeCore.bs.js)
+ (deps (:inputs  DequeCore.ast)  (:ast_deps ../.././src/data-structures/DequeCore.ast ) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures:.bs.js -o DequeCore.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlListCore.ast)
+ (deps (:inputs  CamlListCore.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlListCore.cmj CamlListCore.cmi CamlListCore.cmt CamlListCore.bs.js)
+ (deps (:inputs  CamlListCore.ast)  (:ast_deps ../.././src/data-structures/CamlListCore.ast ) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures:.bs.js -o CamlListCore.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  DiffListCore.ast)
+ (deps (:inputs  DiffListCore.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  DiffListCore.cmj DiffListCore.cmi DiffListCore.cmt DiffListCore.bs.js)
+ (deps (:inputs  DiffListCore.ast)  (:ast_deps ../.././src/data-structures/DiffListCore.ast ) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures:.bs.js -o DiffListCore.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlArrayCore.ast)
+ (deps (:inputs  CamlArrayCore.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  CamlArrayCore.cmj CamlArrayCore.cmi CamlArrayCore.cmt CamlArrayCore.bs.js)
+ (deps (:inputs  CamlArrayCore.ast)  (:ast_deps ../.././src/data-structures/CamlArrayCore.ast ) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures:.bs.js -o CamlArrayCore.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  MutableArrayList.ast)
+ (deps (:inputs  MutableArrayList.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  MutableArrayList.iast)
+ (deps (:inputs  MutableArrayList.rei) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  MutableArrayList.cmi MutableArrayList.cmti)
+ (deps (:inputs  MutableArrayList.iast)  (:ast_deps ../.././src/data-structures/MutableArrayList.ast ../.././src/data-structures/MutableArrayList.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -o MutableArrayList.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  MutableArrayList.cmj MutableArrayList.cmt MutableArrayList.bs.js)
+ (deps (:inputs  MutableArrayList.ast)  MutableArrayList.cmi (:ast_deps ../.././src/data-structures/MutableArrayList.ast ../.././src/data-structures/MutableArrayList.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures:.bs.js -o MutableArrayList.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  MutableArrayListCore.ast)
+ (deps (:inputs  MutableArrayListCore.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  MutableArrayListCore.cmj MutableArrayListCore.cmi MutableArrayListCore.cmt MutableArrayListCore.bs.js)
+ (deps (:inputs  MutableArrayListCore.ast)  (:ast_deps ../.././src/data-structures/MutableArrayListCore.ast ) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures %{ast_deps}) (run bsc -bs-re-out -I ../common-types -I ./features -I . -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures:.bs.js -o MutableArrayListCore.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  MutableArrayListCore.bs.js MutableArrayList.bs.js CamlArrayCore.bs.js DiffListCore.bs.js CamlListCore.bs.js DequeCore.bs.js CamlArray.bs.js CamlList.bs.js Deque.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./src/data-structures/features
+(rule
+(targets  FeatureBack.ast)
+ (deps (:inputs  FeatureBack.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureBack.cmj FeatureBack.cmi FeatureBack.cmt FeatureBack.bs.js)
+ (deps (:inputs  FeatureBack.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureBack.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureBack.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureFront.ast)
+ (deps (:inputs  FeatureFront.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureFront.cmj FeatureFront.cmi FeatureFront.cmt FeatureFront.bs.js)
+ (deps (:inputs  FeatureFront.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureFront.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureFront.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureSyntax.ast)
+ (deps (:inputs  FeatureSyntax.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureSyntax.cmj FeatureSyntax.cmi FeatureSyntax.cmt FeatureSyntax.bs.js)
+ (deps (:inputs  FeatureSyntax.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureSyntax.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureSyntax.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureIndexed.ast)
+ (deps (:inputs  FeatureIndexed.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureIndexed.cmj FeatureIndexed.cmi FeatureIndexed.cmt FeatureIndexed.bs.js)
+ (deps (:inputs  FeatureIndexed.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureIndexed.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureIndexed.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureSequence.ast)
+ (deps (:inputs  FeatureSequence.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureSequence.cmj FeatureSequence.cmi FeatureSequence.cmt FeatureSequence.bs.js)
+ (deps (:inputs  FeatureSequence.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureSequence.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureSequence.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureFrontCommon.ast)
+ (deps (:inputs  FeatureFrontCommon.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureFrontCommon.cmj FeatureFrontCommon.cmi FeatureFrontCommon.cmt FeatureFrontCommon.bs.js)
+ (deps (:inputs  FeatureFrontCommon.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureFrontCommon.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureFrontCommon.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureFrontMutable.ast)
+ (deps (:inputs  FeatureFrontMutable.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureFrontMutable.cmj FeatureFrontMutable.cmi FeatureFrontMutable.cmt FeatureFrontMutable.bs.js)
+ (deps (:inputs  FeatureFrontMutable.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureFrontMutable.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureFrontMutable.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureMutableSyntax.ast)
+ (deps (:inputs  FeatureMutableSyntax.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureMutableSyntax.cmj FeatureMutableSyntax.cmi FeatureMutableSyntax.cmt FeatureMutableSyntax.bs.js)
+ (deps (:inputs  FeatureMutableSyntax.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureMutableSyntax.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureMutableSyntax.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureFrontImmutable.ast)
+ (deps (:inputs  FeatureFrontImmutable.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureFrontImmutable.cmj FeatureFrontImmutable.cmi FeatureFrontImmutable.cmt FeatureFrontImmutable.bs.js)
+ (deps (:inputs  FeatureFrontImmutable.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureFrontImmutable.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureFrontImmutable.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureMutableIndexed.ast)
+ (deps (:inputs  FeatureMutableIndexed.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  FeatureMutableIndexed.cmj FeatureMutableIndexed.cmi FeatureMutableIndexed.cmt FeatureMutableIndexed.bs.js)
+ (deps (:inputs  FeatureMutableIndexed.ast)  (:ast_deps ../../.././src/data-structures/features/FeatureMutableIndexed.ast ) ../../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/data-structures/features %{ast_deps}) (run bsc -bs-re-out -I ../../common-types -I . -I .. -I ../../algorithms/search -I ../../algorithms -I ../../math -I ../..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/data-structures/features:.bs.js -o FeatureMutableIndexed.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  FeatureMutableIndexed.bs.js FeatureFrontImmutable.bs.js FeatureMutableSyntax.bs.js FeatureFrontMutable.bs.js FeatureFrontCommon.bs.js FeatureSequence.bs.js FeatureIndexed.bs.js FeatureSyntax.bs.js FeatureFront.bs.js FeatureBack.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+(subdir ./src/common-types
+(rule
+(targets  Option.ast)
+ (deps (:inputs  Option.re) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Option.iast)
+ (deps (:inputs  Option.rei) )
+(action
+ (run bsc  -w a  -absname -bs-ast -o %{targets} %{inputs}))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Option.cmi Option.cmti)
+ (deps (:inputs  Option.iast)  (:ast_deps ../.././src/common-types/Option.ast ../.././src/common-types/Option.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/common-types %{ast_deps}) (run bsc -bs-re-out -I . -I ../data-structures/features -I ../data-structures -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -o Option.cmi %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ (rule
+(targets  Option.cmj Option.cmt Option.bs.js)
+ (deps (:inputs  Option.ast)  Option.cmi (:ast_deps ../.././src/common-types/Option.ast ../.././src/common-types/Option.iast) ../../bsconfig.json)
+(action
+ (progn (dynamic-run bsb_helper -root /Users/mando/Github/rhythm -cwd ./src/common-types %{ast_deps}) (run bsc -bs-read-cmi -bs-re-out -I . -I ../data-structures/features -I ../data-structures -I ../algorithms/search -I ../algorithms -I ../math -I ..    -w a -bs-package-name rhythm -bs-package-output commonjs:./src/common-types:.bs.js -o Option.cmj %{inputs})))
+(enabled_if (= %{ocaml_version} "4.12.0")) )
+ 
+(alias (name bsb_world)(deps  Option.bs.js)
+(enabled_if (= %{ocaml_version} "4.12.0"))))
+
+
+(subdir .melange.eobjs)
+
+(data_only_dirs node_modules .melange.eobjs)
+(alias (name bsb_world))
+;;;;BSB GENERATED: NO EDIT}

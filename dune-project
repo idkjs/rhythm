@@ -2,4 +2,6 @@
 
 (name rhythm)
 
+(using action-plugin 0.1)
+
 (formatting disabled)

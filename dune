@@ -1,3 +1,5 @@
 (dirs :standard \ node_modules _esy _release)
 
-(data_only_dirs node_modules _esy _release)
+;;;;{BSB GENERATED: NO EDIT
+(include dune.bsb)
+;;;;BSB GENERATED: NO EDIT}
