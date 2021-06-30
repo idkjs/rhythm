@@ -3,33 +3,19 @@
   "version": "2.0.0",
   "description": "Data Structures and Algorithms implemented in Reason",
   "license": "MIT",
-  "esy": {
-    "buildsInSource": "unsafe",
-    "build": [ "ln -sfn #{melange.install} node_modules/bs-platform", "bsb -make-world" ]
-  },
   "scripts": {
-    "test": "esy x bash -cx ./scripts/test.cmd",
-    "watch": "./scripts/watch",
-    "watch-build-only": "./scripts/watch-build-only"
-  },
-  "dependencies": {
-    "ocaml": "4.12.x",
-    "melange": "melange-re/melange",
-    "@opam/ocaml-lsp-server": "*",
-    "@opam/dune": "*",
-    "@esy-ocaml/reason": "*",
-    "refmterr": "*",
-    "ocaml": "*",
-    "@reason-native/rely": "*"
+    "build": "esy bsb -make-world",
+    "build-watch": "bsb -make-world -w",
+    "test": "bsb -make-world && jest",
+    "test-watch": "jest --watch",
+    "clean": "bsb -clean-world"
   },
   "devDependencies": {
-    "@opam/merlin": "*",
-    "ocaml": "*",
-    "@esy-ocaml/reason": "*"
+    "@glennsl/bs-jest": "^0.7.0"
   },
-  "resolutions": {
-    "@reason-native/rely": "jfrolich/reason-native:rely.json#08085a4048974b06aaf3aab918b677b39dea3d18",
-    "refmterr": "jfrolich/reason-native:refmterr.json#08085a4048974b06aaf3aab918b677b39dea3d18",
-    "@esy-ocaml/reason": "EduardoRFS/reason:reason.json#35aa4df3de0daa60bdc1133dcf97855decac48f7"
+  "jest": {
+    "testURL": "http://localhost/",
+    "testRegex": "Testbs.bs.js",
+    "transformIgnorePatterns": [ "/node_modules/(?!@glennsl/bs-jest|bs-platform).+\\.js$" ]
   }
 }
